@@ -16,23 +16,25 @@ public class SecondTest {
 
         driver.get("https://next.privat24.ua/money-transfer/card");
 
+
         By amount = By.xpath("//input[@data-qa-node='amount']");
-        By cardNumber = By.xpath("//input[@data-qa-node='numberdebitSourse']");
-        By expDate = By.xpath("//input[@data-qa-node='expiredebitSourse']");
-        By cvv = By.xpath("//input[@data-qa-node='cvvdebitSourse']");
+        By cardNumber = By.xpath("//input[@data-qa-node='numberdebitSource']");
+        By expDate = By.xpath("//input[@data-qa-node='expiredebitSource']");
+        By cvv = By.xpath("//input[@data-qa-node='cvvdebitSource']");
         By receiver = By.xpath("//input[@data-qa-node='numberreceiver']");
-        By comment = By.xpath("//input[@data-qa-node='comment']");
-        By submitBnt = By.xpath("//button[@data-qa-node='submit']");
+        By toggleComment = By.xpath("//span[@data-qa-node='toggle-comment']");
+        By comment = By.xpath("//textarea[@data-qa-node='comment']");
+        By submitBtn = By.xpath("//button[@type='submit']");
 
 
-        driver.findElement(amount).sendKeys("300");
+        driver.findElement(amount).sendKeys("500");
         driver.findElement(cardNumber).sendKeys("4558032855841715");
         driver.findElement(expDate).sendKeys("0223");
         driver.findElement(cvv).sendKeys("902");
         driver.findElement(receiver).sendKeys("4006895689048337");
-        driver.findElement(comment).sendKeys("Purchase");
-        driver.findElement(submitBnt).click();
-
+        driver.findElement(toggleComment).click();
+        driver.findElement(comment).sendKeys("TESTTEST");
+        driver.findElement(submitBtn).submit();
 
 
     }
