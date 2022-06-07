@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class SecondTest {
+
 
     @Test
     public void checkMindPaymentSu(){
@@ -36,7 +38,14 @@ public class SecondTest {
         driver.findElement(comment).sendKeys("TESTTEST");
         driver.findElement(submitBtn).submit();
 
-
+        Assert.assertEquals("4558 0328 5584 1715", driver.findElement(By.xpath("//span[@data-qa-node='payer-card']")).getText());
+        Assert.assertEquals("4006 8956 8904 8337", driver.findElement(By.xpath("//span[@data-qa-node='receiver-card']")).getText());
+        Assert.assertEquals("500 UAH", driver.findElement(By.xpath("//div[@data-qa-node='payer-amount']")).getText());
+        Assert.assertEquals("500 UAH", driver.findElement(By.xpath("//div[@data-qa-node='receiver-amount']")).getText());
+        Assert.assertEquals("106.72 UAH", driver.findElement(By.xpath("//div[@data-qa-node='payer-currency']")).getText());
+        Assert.assertEquals("0 UAH", driver.findElement(By.xpath("//div[@data-qa-node='receiver-currency']")).getText());
+        Assert.assertEquals("606.72 UAH", driver.findElement(By.xpath("//div[@data-qa-node='total']")).getText());
+        Assert.assertEquals("TESTTEST", driver.findElement(By.xpath("//div[@data-qa-node='comment']")).getText());
     }
 
 }
